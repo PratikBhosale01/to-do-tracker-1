@@ -1,0 +1,46 @@
+<nav class="navbar " id="back">
+  <div class="container-fluid">
+  <button class="btn btn-dark menu"  type="button" data-bs-toggle="offcanvas"
+data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+<i class="fas fa-bars"></i>
+</button>
+<div class="offcanvas offcanvas-start" data-bs-backdrop="true" tabindex="-1" id="offcanvasWithBothOptions"
+aria-labelledby="offcanvasWithBothOptionsLabel">
+<div class="offcanvas-header">
+<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"> Hello {{user.username}} !!!</h5>
+<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+</div>
+<div class="offcanvas-body" *ngIf="isLoggedIn">
+
+<nav>
+  <button  id="w1"  class="btn btn-light" routerLink="/status"><i class="fas fa-bell"></i></button><br>
+  <button id="w2" class="btn btn-light" routerLink="/"><i class="fas fa-home"></i> Main</button><br>
+  <button  id="w2" class="btn btn-light" color="accent" routerLink="/add-task"><i class="fas fa-plus"></i> Add Task</button><br>
+  <button   id="w3" class="btn btn-light" color="accent" routerLink="/completed-task"> <i class="far fa-check-circle"></i> Completed</button><br>
+  <button   id="w4" class="btn btn-light" color="accent" routerLink="/archive-task"> <i class="fas fa-archive"></i> Archive Task</button><br>
+  <button  id="w5" class="btn btn-light" (click)="logout()" routerLink="/Dashboard"><i class="fas fa-sign-out-alt"></i> Logout</button><br>
+</nav>
+
+</div>
+</div>
+</div>
+</nav>
+
+<div class="container mt-4">
+  <div class="card">
+    <div class="row">
+      <div class="col-md-4">
+        <img [src]="userProfile.uploadImage" alt="Profile Image" class="img-fluid rounded-circle">
+      </div>
+      <div class="col-md-8">
+        <h2  style="color: rgb(0, 0, 0);">{{ user.username }}</h2>
+        <p  style="color: rgb(0, 0, 0);"><strong>First Name:</strong> {{ userProfile.firstName }}</p>
+        <p  style="color: rgb(13, 13, 13);"><strong>Last Name:</strong> {{ userProfile.lastName }}</p>
+        <p  style="color: rgb(5, 5, 5);"><strong>Contact Number:</strong> {{ userProfile.contact }}</p>
+      </div>
+      <button type="submit" routerLink="/addprofile" class="btn btn-secondary " style="width: 100px;" >Edit</button>
+    </div>
+   </div>
+</div>
+
+

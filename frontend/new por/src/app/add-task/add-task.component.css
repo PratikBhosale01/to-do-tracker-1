@@ -1,0 +1,32 @@
+.card{
+    
+    gap: 1pc;
+    width: 500px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+     transform: translate(-50%,-50%);
+     /* background-color: rgb(53, 56, 59); */
+     background:linear-gradient(120deg ,rgb(244, 223, 184)20%, rgb(228, 217, 228)100%);
+    border: 1px solid;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+#back{
+    background-color: rgb(78, 78, 78);
+  }
+  
+  .title{
+    margin-left: -64pc; 
+    font-family: sans-serif;
+    font-size: 30px;
+    color: #fafafa;
+    font-style:italic;
+  }
+  a {
+    text-decoration: none;
+    color: #353232;
+  }
+  #back{
+    background-color: rgb(78, 78, 78);
+  }

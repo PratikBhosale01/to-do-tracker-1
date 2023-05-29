@@ -1,0 +1,77 @@
+version: "3.9"
+services:
+  mysqlService:
+    image: mysql:5.7
+    ports:
+      - "3307:3307"
+    container_name: mysql-container
+    networks:
+      - springCloud-ToDoApplication-net
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: Prince@03
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+  mongodbService:
+    image: mongo:latest
+    container_name: mongo-container
+    networks:
+      - springCloud-ToDoApplication-net
+    ports:
+      - "27017:27017"
+
+  eureka-service:
+    container_name: eureka-service
+    build: Eureka/
+    networks:
+      - springCloud-ToDoApplication-net
+    environment:
+      EUREKA_SERVER_PORT: 8761
+    ports:
+      - "8761:8761"
+    restart: always
+
+
+  gateway:
+    container_name: gateway
+    build: API-Gateway/
+    networks:
+      - springCloud-ToDoApplication-net
+    environment:
+      API_GATEWAY_PORT: 8081
+      EUREKA_SERVER_IP: localhost
+      EUREKA_SERVER_PORT: 8761
+    ports:
+      - "8081:8081"
+    depends_on:
+      - eureka-service
+
+  user-authentication-service:
+    container_name: user-authentication-service
+    build: User-Authentication/
+    networks:
+      - springCloud-ToDoApplication-net
+    ports:
+      - "8085:8085"
+    depends_on:
+      - mysqlService
+      - gateway
+      - eureka-service
+    restart: always
+
+  task-service:
+    container_name: task-service
+    build: Task-Service/
+    networks:
+      - springCloud-ToDoApplication-net
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mongodbService
+      - gateway
+      - eureka-service
+    restart: always
+
+networks:
+  springCloud-ToDoApplication-net:
+    driver: bridge

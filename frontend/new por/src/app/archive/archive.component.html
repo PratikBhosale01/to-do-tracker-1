@@ -1,0 +1,57 @@
+<nav class="navbar " id="back">
+    <div class="container-fluid">
+    <button class="btn btn-dark menu"  type="button" data-bs-toggle="offcanvas"
+  data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+  <i class="fas fa-bars"></i>
+  </button>
+  <div class="offcanvas offcanvas-start" data-bs-backdrop="true" tabindex="-1" id="offcanvasWithBothOptions"
+  aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header">
+  <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"> Hello {{user.username}} !!!</h5>
+  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body" *ngIf="isLoggedIn">
+  <div>
+  <nav>
+    <button  id="w1"  class="btn btn-light" routerLink="/status"><i class="fas fa-bell"></i></button><br>
+    <button  id="w2" class="btn btn-light" color="accent" routerLink="/add-task"><i class="fas fa-plus"></i> Add Task</button><br>
+    <button   id="w3" class="btn btn-light" color="accent" routerLink="/completed-task"> <i class="far fa-check-circle"></i> Completed</button><br>
+    <button   id="w4" class="btn btn-light" color="accent" routerLink="/archive-task"> <i class="fas fa-archive"></i>Archive Task</button><br>
+    <button  id="w5" class="btn btn-light" (click)="logout()" routerLink="/Dashboard"><i class="fas fa-sign-out-alt"></i> Logout</button><br>
+  </nav>
+  </div>
+  </div>
+  </div>
+    <a class="navbar-brand " class="title" routerLink="/">TASK-TRACKER </a>
+    <form class="d-flex" role="search" >
+        <div class="dropdown" id="hello">
+            <a class=" btn btn-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"  style="color: rgb(255, 254, 254);">
+                <i class="fas fa-user-circle mr-2"></i> Hi {{user.username}} !!!
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <button id="w5" class="btn btn-light" (click)="logout()" routerLink="/Dashboard">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </form>
+  </div>
+  </nav>
+<h1 style="color: white;"> Archive Task ! </h1>
+<div>
+    <div class="col-12 my-5  ">
+        <div class="row px-3 ">
+            <div id="div1" class="card p-2 mx-2 mb-3" style="width: 18rem;" *ngFor="let archive of archives">
+               <p style="color: rgb(12, 12, 12);"> Title : {{archive.title}}</p>
+                <p style="color: rgb(15, 15, 15);"> Description : {{archive.des}}</p>
+                <p style="color: rgb(8, 8, 8);"> Date : {{archive.date}}</p>
+                <div class="btg">
+                <button class="btn btn-sm btn-outline-secondary" (click)="restoreTask(archive,archive.sr)" ><i class="fas fa-undo"></i> </button>
+                <button  class="btn btn-sm btn-outline-danger bt2" (click)="deleteTask(archive.sr)"> <i class="fas fa-trash-alt"></i> </button>
+               </div>
+            </div>
+        </div>
+    </div>
+</div>

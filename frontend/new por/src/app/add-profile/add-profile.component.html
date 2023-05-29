@@ -1,0 +1,69 @@
+<nav class="navbar " id="back">
+  <div class="container-fluid">
+  <button class="btn btn-dark menu"  type="button" data-bs-toggle="offcanvas"
+data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+<i class="fas fa-bars"></i>
+</button>
+<div class="offcanvas offcanvas-start" data-bs-backdrop="true" tabindex="-1" id="offcanvasWithBothOptions"
+aria-labelledby="offcanvasWithBothOptionsLabel">
+<div class="offcanvas-header">
+<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"> Hello {{user.username}} !!!</h5>
+<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+</div>
+<div class="offcanvas-body" *ngIf="isLoggedIn">
+
+<nav>
+  <button  id="w1"  class="btn btn-light" routerLink="/status"><i class="fas fa-bell"></i></button><br>
+  <button id="w2" class="btn btn-light" routerLink="/"><i class="fas fa-home"></i> Main</button><br>
+  <button  id="w2" class="btn btn-light" color="accent" routerLink="/add-task"><i class="fas fa-plus"></i> Add Task</button><br>
+  <button   id="w3" class="btn btn-light" color="accent" routerLink="/completed-task"> <i class="far fa-check-circle"></i> Completed</button><br>
+  <button   id="w4" class="btn btn-light" color="accent" routerLink="/archive-task"> <i class="fas fa-archive"></i> Archive Task</button><br>
+  <button  id="w5" class="btn btn-light" (click)="logout()" routerLink="/Dashboard"><i class="fas fa-sign-out-alt"></i> Logout</button><br>
+</nav>
+
+</div>
+</div>
+</div>
+</nav>
+
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="card">
+          <h1 style="color: rgb(0, 0, 0);">Edit / Add Proflie</h1>
+    <div class="form-group d-flex">
+        <label for="profilePic" style="color: rgb(7, 7, 7);">Profile Picture:</label>
+        <input type="file" class="form-control-file" id="profilePic" (change)="uploadImage($event)"  formControlName="profilePic">
+        <div class="col-md-4">
+          <img [src]="img" alt="Profile Image" class="img-fluid" height="100px" width="100px">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="firstName" style="color: rgb(0, 0, 0);">First Name:</label>
+        <input type="text" class="form-control" id="firstName" formControlName="firstName" required>
+        <small *ngIf="form.controls['firstName'].errors?.['required']" class="text-danger">*First Name is required</small>
+        <small *ngIf="form.controls['firstName'].errors?.['pattern']" class="text-danger">
+          *First Name must contain only alphabetic characters
+        </small>
+      </div>
+      
+      <div class="form-group">
+        <label for="lastName" style="color: rgb(0, 0, 0);">Last Name:</label>
+        <input type="text" class="form-control" id="lastName" formControlName="lastName" required>
+        <small *ngIf="form.controls['lastName'].errors?.['required']" class="text-danger">*Last Name is required</small>
+        <small *ngIf="form.controls['lastName'].errors?.['pattern']" class="text-danger">
+          *Last Name must contain only alphabetic characters
+        </small>
+      </div>
+      
+      <div class="form-group">
+        <label for="contact" style="color: rgb(0, 0, 0);">Contact Number:</label>
+        <input type="tel" class="form-control" id="contact" formControlName="contact" required>
+        <small *ngIf="form.controls['contact'].errors?.['required']" class="text-danger">*Contact Number is required</small>
+        <small *ngIf="form.controls['contact'].errors?.['pattern']" class="text-danger">
+          *Contact Number should be a valid phone number
+        </small>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="color: rgb(3, 3, 3);">Add profile</button>
+</div>
+</form>

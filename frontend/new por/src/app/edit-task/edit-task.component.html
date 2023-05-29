@@ -1,0 +1,36 @@
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="card">
+    <div class="form-group">
+      <h1 style="color: rgb(241, 245, 249);">Edit Task</h1>
+      <label for="title" style="color: rgb(14, 14, 14);">Title:</label>
+      <input type="text" class="form-control" id="title" formControlName="title" [(ngModel)]="Task.title">
+      <small  *ngIf="form.controls['title'].errors?.['required']" class="text-danger" >*Title is required</small>
+      <small  *ngIf="form.controls['title'].errors?.['maxLength']" class="text-danger" >*Max should be 7</small>
+      <small  *ngIf="form.controls['title'].errors?.['pattern']" class="text-danger" >*Title must contain only alphabetic characters</small>
+    </div>
+
+    <div class="form-group">
+      <label for="des" style="color: rgb(14, 14, 14);">Description:</label>
+      <textarea class="form-control" id="des" formControlName="des" [(ngModel)]="Task.des"></textarea>
+      <small  *ngIf="form.controls['des'].errors?.['required']" class="text-danger" >*Des is required</small>
+      <small  *ngIf="form.controls['title'].errors?.['minLength']" class="text-danger" >*Min should be 10</small>
+      <small  *ngIf="form.controls['title'].errors?.['maxLength']" class="text-danger" >*Max should be 40</small>
+    </div>
+
+    <div class="form-group">
+      <label for="date" style="color: rgb(0, 0, 0);">Due Date:</label>
+      <input type="date" class="form-control" id="date" formControlName="date" min="{{dateToday() | date:'yyyy-MM-dd'}}" >
+    </div>
+
+    <div class="form-group">
+      <label for="priority" style="color: rgb(21, 20, 20);">Priority Level:</label>
+      <select class="form-control" id="priority" formControlName="priorityLevel" [(ngModel)]="Task.priorityLevel">
+        <option value="high">HIGH</option>
+        <option value="medium">MEDIUM</option>
+        <option value="low">LOW </option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Update Task</button>
+  </div>
+</form>

@@ -1,0 +1,112 @@
+<!-- <div class="container"> -->
+    <div *ngIf="isLoggedIn">
+        <nav class="navbar " id="back">
+            <div class="container-fluid">
+            <button class="btn btn-dark menu"  type="button" data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="offcanvas offcanvas-start" data-bs-backdrop="true" tabindex="-1" id="offcanvasWithBothOptions"
+      aria-labelledby="offcanvasWithBothOptionsLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"> Hello {{user.username}} !!!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body" *ngIf="isLoggedIn">
+        <div>
+          <nav>
+            <button  id="w1"  class="btn btn-light" routerLink="/status"><i class="fas fa-bell"></i></button><br>
+            <button  id="w2" class="btn btn-light" color="accent" routerLink="/add-task"><i class="fas fa-plus"></i> Add Task</button><br>
+            <button   id="w3" class="btn btn-light" color="accent" routerLink="/completed-task"> <i class="far fa-check-circle"></i> Completed</button><br>
+            <button   id="w4" class="btn btn-light" color="accent" routerLink="/archive-task"> <i class="fas fa-archive"></i>Archive Task</button><br>
+            <button  id="w5" class="btn btn-light" (click)="logout()" routerLink="/Dashboard"><i class="fas fa-sign-out-alt"></i> Logout</button><br>
+          </nav>
+        </div>
+      </div>
+    </div>
+            <a class="navbar-brand " class="title" routerLink="/">TASK-TRACKER </a>
+            <form class="d-flex" role="search" >
+                <div class="dropdown" id="hello">
+                    <a class=" btn btn-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"  style="color: rgb(243, 234, 234);">
+                         Hi {{user.username}} !!!
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                          <a *ngIf="user.userProfile" class="dropdown-item" routerLink="/profile"><span style="display: flex; align-items: center;">
+                            <mat-icon>account_circle</mat-icon>Profile</span></a>
+                            <a *ngIf="!user.userProfile?.firstName" class="dropdown-item" routerLink="/addprofile"><span style="display: flex; align-items: center;">
+                              <mat-icon>account_circle</mat-icon>Add-Profile</span></a>  
+
+                          <a class="dropdown-item" routerLink="/Dashboard"(click)="logout()"><span style="display: flex; align-items: center;">
+                              <i class="fas fa-sign-out-alt"></i> Logout</span></a> 
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </nav>
+        
+        <div class=" mb-2 d-flex justify-content-between">
+            <div class="mt-3 input-group justify-content-center">
+                <input type="text" class="form-control-sm transparent-bg"   [(ngModel)]="searchTerm" placeholder="Search...">
+                <div id="srch" class="input-group-append">
+                    <button class="btn btn-warning" (click)="searchTask(searchTerm)">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        
+           
+        </div>
+     
+            <div class="element">
+                <div class="content">
+                    <div id="div1" class="card p-2 mx-2 mb-3" style="width: 16rem;" *ngFor="let task of tasks">
+                        <div class="card-priority-bar" [style.background-color]="getPriorityColor(task.priorityLevel).bar"></div>
+                        <p  style="color: rgb(8, 8, 8);"> Title : {{task.title}}</p>
+                        <p style="color: rgb(0, 0, 0);"> Description : {{task.des}}</p>
+                        <p style="color: rgb(0, 0, 0);"> Due Date : {{task.date | date:'mediumDate'}}</p>
+                        <p style="color: rgb(11, 11, 11);">Task Added On: {{ task.addOnDate | date:'mediumDate' }}</p>
+                        <p [ngClass]="getDueStatusClass(task)">Due Status: {{ getDueStatusText(task) }}</p>
+                        <div class="btg">
+                        <button class="btn btn-sm btn-outline-secondary" (click)="completeTask(task,task.sr)"><i class="far fa-check-circle"></i></button>
+                        <button id="bt1" class="btn btn-sm btn-outline-secondary" (click)="editTask(task)"> <i class="fas fa-edit"></i></button>
+                        <button id="bt2" class="btn btn-sm btn-outline-danger" (click)="deleteTask(task.sr)"> <i class="fas fa-trash-alt"></i> </button>
+                        </div>
+                     </div>
+                </div>
+            </div>
+         </div>
+    <div *ngIf="!isLoggedIn" class="full-screen">
+      <div >
+      <nav class="navbar " id="back">
+        <a class="navbar-brand " class="title" routerLink="/">TASK-TRACKER </a>
+        <div >
+        <button type="button"  class="btn btn-dark but "><a routerLink="/" style="color: white;"> Home </a></button>
+        <button type="button"  class="btn btn-dark but"><a routerLink="/features" style="color: white;"> Features </a></button>
+        <button type="button"  class="btn btn-dark but"><a routerLink="/AboutUs" style="color: white;"> About us  </a></button>
+       </div>
+     </nav>
+         <div class="background-container">
+            <div class="content">
+                <img src="../../assets/20230516_225303.png" alt="" width="850" height="650">
+              <div class="d-flex justify-content-end element1">
+                <button type="button" id="b1" class="btn btn-success border-button"><a routerLink="/registration" style="color: rgb(229, 224, 224);">Registration Now</a></button>
+                <button type="button" id="b2" class="btn btn-success border-button" ><a routerLink="/login" style="color: rgb(222, 217, 217);">Log In</a></button>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+              <div class="col-md-4 d-flex align-items-center">
+                <span class="mb-3 mb-md-0  " style="color: white;" >&copy; 2023 Company, Inc</span>
+              </div>
+               <ul class="nav col-md-4 justify-content-end list-unstyled d-flex gap" >
+                  <li><a class="dropdown-item" href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram icon" style="color: rgb(0, 0, 0);"></i></a></li>
+                  <li><a class="dropdown-item" href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter icon" style="color: rgb(0, 0, 0);"></i></a></li>
+                  <li><a class="dropdown-item" href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f icon" style="color: rgb(0, 0, 0);"></i></a></li>
+              </ul>
+            </footer>
+          </div>
+        </div>
+<!-- </div> -->

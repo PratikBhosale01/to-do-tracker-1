@@ -1,0 +1,41 @@
+<nav class="navbar " id="back">
+  <a class="navbar-brand " class="title" routerLink="/">TASK-TRACKER </a>
+  <div >
+  <button type="button"  class="btn btn-dark but "><a routerLink="/" style="color: white;"> Home </a></button>
+  <button type="button"  class="btn btn-dark but"><a routerLink="/features" style="color: white;"> Features </a></button>
+  <button type="button"  class="btn btn-dark but"><a routerLink="/AboutUs" style="color: white;"> About us  </a></button>
+ </div>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+
+      <form [formGroup]="form" (ngSubmit)="login()">
+        <div class="card">
+          <div class="text-center"></div>
+          <h1 style="color: rgb(14, 14, 14);">Login</h1>
+          <h5 style="color:rgb(0, 0, 0)">Please enter email & password !!</h5>
+          <div class="mb-3">
+            <label class="form-label" style="color: rgb(0, 0, 0);">Email address</label>
+            <input type="emailId" formControlName="emailId" class="form-control" id="exampleInputEmail1"
+              aria-describedby="emailHelp">
+            <small *ngIf="form.controls['emailId'].errors?.['required']" class="text-danger">*Email is required</small>
+            <small *ngIf="form.controls['emailId'].errors?.['pattern']" class="text-danger">*Enter a valid Email
+              Id</small>
+
+          </div>
+          <div class="mb-3">
+            <label class="form-label" style="color: rgb(16, 16, 16);">Password</label>
+            <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1">
+            <small *ngIf="form.controls['password'].errors?.['required']" class="text-danger">*Password is
+              required</small>
+          </div>
+          <button type="submit" class="btn btn-secondary " style="width: 100px; ">Login</button>
+          <div style="margin-top: 2%;">
+            <a routerLink="/registration" style="color: rgb(16, 16, 16);">New User ! Sign-Up Here</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

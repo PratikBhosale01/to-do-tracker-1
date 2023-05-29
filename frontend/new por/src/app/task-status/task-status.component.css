@@ -1,0 +1,53 @@
+@import '~@fortawesome/fontawesome-free/css/all.css';
+.task-due-date {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  .task-due-date-status {
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .task-due-date-overdue {
+    color: red;
+  }
+  
+  .task-due-date-near {
+    color: orange;
+  }
+  
+  .task-due-date-far {
+    color: green;
+  }
+  table{ background:linear-gradient(120deg ,rgb(244, 223, 184)20%, rgb(228, 217, 228)100%);
+    border: 1px solid;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    position: absolute;
+    top: 17%;
+    left: 10%;
+   
+  }
+  h1{
+    margin-top: 10px;
+    text-align: center;
+}
+.title{
+  margin-left: -64pc; 
+  font-family: sans-serif;
+  font-size: 30px;
+  color: #fafafa;
+  font-style:italic;
+}
+a {
+  text-decoration: none;
+  color: #353232;
+}
+.offcanvas-start {
+  width: 200px; 
+}
+#back{
+  background-color: rgb(78, 78, 78);
+}

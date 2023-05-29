@@ -1,0 +1,73 @@
+<nav class="navbar " id="back">
+  <div class="container-fluid">
+    <button class="btn btn-outline-dark"  type="button" data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasWithBothOptions" (click)="logg()" aria-controls="offcanvasWithBothOptions">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="offcanvas offcanvas-start" data-bs-backdrop="true" tabindex="-1" id="offcanvasWithBothOptions"
+      aria-labelledby="offcanvasWithBothOptionsLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Hello user   !!!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body" *ngIf="isLoggedIn">
+        <div>
+          <nav>
+            <button  id="w1"  class="btn btn-light" routerLink="/status"><i class="fas fa-bell"></i></button><br>
+            <button  id="w2" class="btn btn-light" color="accent" routerLink="/add-task"><i class="fas fa-plus"></i> Add Task</button><br>
+            <button   id="w3" class="btn btn-light" color="accent" routerLink="/completed-task"> <i class="far fa-check-circle"></i> Completed</button><br>
+            <button   id="w4" class="btn btn-light" color="accent" routerLink="/archive-task"> <i class="fas fa-archive"></i>Archive Task</button><br>
+            <button  id="w5" class="btn btn-light" (click)="logout()" routerLink="/Dashboard"><i class="fas fa-sign-out-alt"></i> Logout</button><br>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <a class="navbar-brand " class="title" routerLink="/">TASK-TRAKER </a>
+    <span class="navbar-text span"  style="color: white;font-style: italic;">
+      <!-- TRACK YOUR TASK -->
+    </span>
+
+  <div>
+    <form class="d-flex" role="search" >
+      <!-- <button type="button" class="btn btn-light"><a routerLink="/registration"> Sign Up </a></button> -->
+      <!-- <button type="button" class="btn btn-light" ><a routerLink="/login">Log In</a></button> -->
+      <!-- <div class="dropdown">
+        <button class="btn btn-outline-dark dropdown-toggle" type="button" id="contactDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          Contact Us
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="contactDropdown">
+          <li><a class="dropdown-item" href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram icon"></i>Instagram</a></li>
+          <li><a class="dropdown-item" href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter icon"></i>Twitter</a></li>
+          <li><a class="dropdown-item" href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f icon"></i>Facebook</a></li>
+        </ul>
+      </div> -->
+
+      <div class="dropdown" id="hello">
+        <a class=" btn btn-outline-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"  style="color: rgb(10, 10, 10);">
+            <i class="fas fa-user-circle mr-2"></i> Hi {{user.username}} !!!
+        </a>
+        <ul class="dropdown-menu">
+          <a class="dropdown-item" routerLink="/profile"><span style="display: flex; align-items: center;">
+            <mat-icon>account_circle</mat-icon>Profile</span></a>
+
+            <li>
+                <button id="w5" class="btn btn-light" (click)="logout()" routerLink="/Dashboard">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </li>
+        </ul>
+    </div>
+    </form>
+  </div>
+    <!-- <div class="dropdown" *ngIf="isLoggedIn">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        
+        hi {{user.username}} !!!
+      </a>
+      <ul class="dropdown-menu">
+        <li> <button  id="w5" class="btn btn-light" (click)="logout()" routerLink="/Dashboard"><i class="fas fa-sign-out-alt"></i> Logout</button></li>
+      </ul>
+    </div> -->
+  </div>
+</nav>

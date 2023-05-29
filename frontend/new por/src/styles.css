@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { 
+    height: 100%; 
+    background-color: rgb(53, 56, 59);
+    background:linear-gradient(0deg , rgb(87, 104, 112)0%, rgb(213, 213, 226)100%);
+     background-image: url("../src/assets/pexels-ivan-samkov-4238524.jpg");
+    background-size: cover;
+    background-position: center;
+  background-position: center center;
+  background-color: rgb(53, 56, 59);
+}  
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

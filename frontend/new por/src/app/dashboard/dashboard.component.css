@@ -1,0 +1,189 @@
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+body{
+  overflow: scroll;
+}
+.card-priority-bar {
+  height: 5px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 4px 4px 0 0;
+}
+
+#div1 {
+  background:linear-gradient(120deg ,rgb(244, 223, 184)20%, rgb(228, 217, 228)100%);;
+
+  /* padding: ; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  /* margin: 14px; */
+}
+#back{
+  background-color: rgb(78, 78, 78);
+}
+
+#das {
+  margin-left: 50px;
+}
+
+a {
+  text-decoration: none;
+  color: #353232;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #2b2d42;
+  margin-top: 5rem;
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: #090909;
+  margin-top: 1.4rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-style: italic;
+
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: #2b2d42;
+  margin-top: 10rem;
+  margin-bottom: 6rem;
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+}
+
+.search {
+  width: 400px;
+}
+
+/* #dd {
+  margin-left: auto;
+}
+
+@media (max-width: 767px) {
+  #dd {
+    order: 2;
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+} */
+img {
+  margin-top: -4%;
+  margin-left: -13%;
+}
+
+
+.button {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+#B2 {
+  margin-left: 10px;
+}
+
+.btg {
+
+  display: flex;
+  justify-content: center;
+
+}
+
+
+
+
+
+#bt1 {
+  margin-left: 5px;
+}
+
+#bt2 {
+  margin-left: 5px;
+}
+
+.btn-spacing {
+  margin-top: 30px;
+  margin-right: 15px;
+}
+
+#hello {
+  position: relative;
+  left: 0pc;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1pc;
+}
+
+.white-text {
+  color: white;
+}
+
+.transparent-bg {
+  /* background-color: transparent; */
+  border: 1px solid black;
+  border-radius: 50px;
+  padding: 5px 10px;
+}
+
+.title {
+
+  font-family: sans-serif;
+  font-size: 30px;
+  color: #fafafa;
+  font-style: italic;
+}
+
+.element1 {
+  margin-top: -15pc;
+  gap: 2pc;
+}
+
+.offcanvas-start {
+  width: 200px;
+}
+
+.menu {
+  margin-left: 0pc;
+  margin-right: -66pc;
+}
+
+.gap {
+  gap: 2pc;
+}
+
+.but {
+  margin-right: 2pc;
+}
+
+.full-screen {
+  height: 100vh;
+}
+.border-button {
+  /* border: 3px solid #ffffff; */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.625);
+ 
+}
+
+
+
+
+
+
